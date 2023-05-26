@@ -1,0 +1,91 @@
+@mixin produce($config) {
+  /*
+  UNUSED
+
+  $crud-validation-error-color: tomato;
+  $crud-validation-error-color-cb-correction: #a6611a;
+  $crud-validation-success-color: #26b527;
+  $crud-validation-success-color-cb-correction: #018571;
+
+  .crud-validation-error,
+  .select2.select2-container.select2-container--default.crud-validation-error {
+    border-color: $crud-validation-error-color;
+    color: $crud-validation-error-color;
+
+    &:focus {
+      border-color: $crud-validation-error-color;
+      color: $crud-validation-error-color;
+    }
+  }
+
+  .crud-validation-success,
+  .select2.select2-container.select2-container--default.crud-validation-success {
+    border-color: $crud-validation-success-color;
+    color: $crud-validation-success-color;
+
+    &:focus {
+      border-color: $crud-validation-success-color;
+      color: $crud-validation-success-color;
+    }
+  }
+
+  .crud-validation-msg-output {
+    position: relative;
+    width: 100%;
+    background-color: $crud-validation-error-color;
+    margin-top: -0.7em;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    z-index: 1;
+
+    &:empty {
+      display: none;
+    }
+
+    ul {
+      margin: 0;
+    }
+  }
+
+  .crud-signature-pad-canvas.crud-validation-error {
+    box-shadow: 0 0 5px $crud-validation-error-color inset;
+  }
+
+
+  &.color-blindness-corrections {
+
+    .crud-validation-error,
+    .select2.select2-container.select2-container--default.crud-validation-error {
+      border-color: $crud-validation-error-color-cb-correction;
+      color: $crud-validation-error-color-cb-correction;
+
+      &:focus {
+        border-color: $crud-validation-error-color-cb-correction;
+        color: $crud-validation-error-color-cb-correction;
+      }
+    }
+
+    .crud-validation-success,
+    .select2.select2-container.select2-container--default.crud-validation-success {
+      border-color: $crud-validation-success-color-cb-correction;
+      color: $crud-validation-success-color-cb-correction;
+
+      &:focus {
+        border-color: $crud-validation-success-color-cb-correction;
+        color: $crud-validation-success-color-cb-correction;
+      }
+    }
+
+    .crud-validation-msg-output {
+      background-color: $crud-validation-error-color-cb-correction;
+      color: white;
+    }
+
+    .crud-signature-pad-canvas.crud-validation-error {
+      box-shadow: 0 0 5px $crud-validation-error-color-cb-correction inset;
+    }
+  }
+  */
+}

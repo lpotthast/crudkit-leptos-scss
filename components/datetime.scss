@@ -1,0 +1,247 @@
+@use "sass:map";
+
+@mixin produce($config) {
+    $datetime: map.get($config, "component", "datetime");
+
+    .crud-datetime {
+        display: flex;
+        flex-direction: column;
+
+        .datetime-dropdown-menu-ref {
+            position: relative;
+            width: 100%;
+        }
+
+        .datetime-dropdown-menu {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 0.4rem rgba(115, 115, 115, 0.25);
+            width: calc(100% - 4px);
+            max-width: 28em;
+            min-width: 22em;
+            left: 2px;
+            font-size: map.get($datetime, "font-size");
+            z-index: 9000;
+        }
+
+        .date-selector {
+            .datetime-calendar-month {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .actions {
+                margin-bottom: 0.5em;
+                margin-top: 0.5em;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                user-select: none;
+
+                &.center {
+                    justify-content: center;
+                }
+
+                .previous {
+                    cursor: pointer;
+                    margin-left: 0.5em;
+                    font-size: 2.5em;
+                }
+
+                .current-date {
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 1.3em;
+                    border: 1px solid transparent;
+                    border-radius: 0.5em;
+                    padding: 0.5em;
+
+                    &:hover {
+                        background-color: map.get($datetime, "super-light-grey");
+                    }
+                }
+
+                .next {
+                    cursor: pointer;
+                    margin-right: 0.5em;
+                    font-size: 2.5em;
+                }
+
+            }
+
+            .years,
+            .months {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                margin: 0.5em;
+
+                .year,
+                .month {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid transparent;
+                    border-radius: 10em;
+                    width: calc(100% / 3.25);
+                    padding: 0.75em;
+                    font-weight: 200;
+
+                    &:hover {
+                        background-color: map.get($datetime, "super-light-grey");
+                    }
+
+                    &.is-now {
+                        border: 0.1em solid map.get($datetime, "dark-grey");
+                    }
+
+                    &.disabled {
+                        color: map.get($datetime, "light-grey");
+                    }
+                }
+            }
+
+            .weekday-names {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .weekday-name {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: calc(100% / 7);
+                min-height: 3em;
+                // border-bottom: 1px solid lightgrey;
+                user-select: none;
+                font-weight: 700;
+                color: map.get($datetime, "brand-color");
+            }
+
+            .week {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .day {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // width: calc(100% / 7);
+                min-height: 3em;
+                user-select: none;
+                position: relative;
+                width: 50%;
+                overflow: hidden;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: 100%;
+                }
+
+                .text {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 0.1em solid transparent;
+                    border-radius: 10em;
+                    margin: 0.25em;
+
+                    &.is-now {
+                        border: 0.1em solid map.get($datetime, "dark-grey");
+                    }
+                }
+
+                &.not-in-month {
+                    color: map.get($datetime, "light-grey-text-color");
+                }
+
+                &.selected {
+                    .text {
+                        background-color: map.get($datetime, "brand-color");
+                        color: map.get($datetime, "white");
+                    }
+                }
+
+                &.disabled {
+                    .text {
+                        color: map.get($datetime, "super-light-grey");
+                    }
+                }
+
+                &:hover {
+                    .text {
+                        background-color: map.get($datetime, "super-light-grey");
+                    }
+
+                    &.disabled {
+                        .text {
+                            background-color: map.get($datetime, "light-grey");
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .time-selector {
+            .selections {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                input {
+                    text-align: center;
+                    font-size: 1em;
+                }
+
+                .hour-selection,
+                .minute-selection,
+                .second-selection {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 2em;
+                }
+
+                .hour-selection {}
+
+                .minute-selection {}
+
+                .second-selection {}
+            }
+
+            .arrow-up {
+                font-size: 3em;
+                margin: 0.2em;
+                border-bottom-color: grey;
+            }
+
+            .arrow-down {
+                font-size: 3em;
+                margin: 0.2em;
+                border-top-color: grey;
+            }
+
+            .actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+        }
+    }
+}

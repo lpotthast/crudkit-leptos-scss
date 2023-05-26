@@ -1,0 +1,119 @@
+@use "sass:map";
+@use "sass:color";
+
+$-grey-0: #F8F8F8;
+$-grey-1: #ECECEB;
+$-grey-2: #DBDBDA;
+$-grey-3: #8D9CA3;
+$-grey-4: #5D6E77;
+$-grey-5: #2E2F33;
+$-grey-6: #212121;
+$-std-text-bright: #f0f0f0;
+$-std-text-dark: #1d1d1d;
+$-default-color: #e2e2e2;
+
+$-primary: #0275d8;
+$-info: #0275d8;
+$-success: #43b543;
+$-warn: rgb(251, 140, 0);
+$-danger: #d9534f;
+
+$colors: (
+    grey-0: $-grey-0,
+    grey-1: $-grey-1,
+    grey-2: $-grey-2,
+    grey-3: $-grey-3,
+    grey-4: $-grey-4,
+    grey-5: $-grey-5,
+    grey-6: $-grey-6,
+    std-text-bright: $-std-text-bright,
+    std-text-dark: $-std-text-dark,
+    default-color: $-default-color,
+    primary: $-primary,
+    info: $-info,
+    success: $-success,
+    warn: $-warn,
+    danger: $-danger,
+);
+
+$-darker-1: 5%;
+$-darker-2: 7%;
+$-darker-3: 10%;
+
+$color-shifts: (
+    darker-1: $-darker-1,
+    darker-2: $-darker-2,
+    darker-3: $-darker-3,
+);
+
+$-btn-box-shadow-opacity: 0.3;
+$-input-bg-color: white;
+$-input-inverted-bg-color: $-std-text-dark;
+$-input-padding: 0.5em 2em 0.5em 0;
+
+$components: (
+    table-wrapper: (
+        box-shadow-color: #666666,
+    ),
+    table: (
+        color: $-std-text-dark,
+        background-color: white,
+        background-color-on-hover: lighten($-std-text-dark, 80%),
+        background-color-of-striped-rows: #ffffeb,
+        header-background-color: #fafafa,
+        border-color: lighten($-std-text-dark, 80%),
+        cell-box-shadow-on-hover: 2px 2px 10px -3px rgb(50, 50, 50),
+        column-background-if-ordered: #dddddd,
+        header-cell-padding: 0.75em 1em,
+        body-cell-padding: 0.75em 1em
+    ),
+    table-row: (
+        border-bottom-color: lightgrey,
+    ),
+    card: (
+        background-color: white,
+        box-shadow-color: #666666,
+    ),
+    instance: (
+        header-color: $-std-text-dark,
+        header-bg-color: #eaeaea,
+        //body-bg-color: white,
+        body-bg-color: transparent,
+        collapsible-body-content-margin: 0.75em
+    ),
+    field-label: (
+        color: #767676
+    ),
+    input: (
+        padding: $-input-padding,
+        color: $-std-text-dark,
+        background-color: $-input-bg-color,
+        border: none, // Reset any border previously defined!
+        border-bottom: 1px solid rgba(0, 0, 0, .15),
+        border-radius: 0
+    ),
+    tiptap-editor: (
+        btn-color: $-std-text-dark,
+        btn-background-color: #dfdfdf,
+        active-btn-color: white,
+        active-btn-background-color: $-std-text-dark,
+        instance-color: $-std-text-dark,
+        instance-background-color: $-input-bg-color,
+        border-color: #c9c9c9
+    ),
+    datetime: (
+        font-size: 1em, // otherwise input font size
+        brand-color: #FF5711,
+        super-light-grey: $-grey-1,
+        light-grey: $-grey-2,
+        dark-grey: $-grey-5,
+        light-grey-text-color: $-grey-3,
+        white: $-grey-0,
+    )
+);
+
+$config: (
+    color: $colors,
+    color-shift: $color-shifts,
+    component: $components,
+);

@@ -1,0 +1,207 @@
+@use "sass:map";
+
+@mixin produce($config) {
+  $table-wrapper: map.get($config, "component", "table-wrapper");
+  $table: map.get($config, "component", "table");
+  $table-row: map.get($config, "component", "table-row");
+
+  $-color: map.get($table, "color");
+  $-background-color: map.get($table, "background-color");
+  $-background-color-on-hover: map.get($table, "background-color-on-hover");
+  $-background-color-of-striped-rows: map.get($table, "background-color-of-striped-rows");
+  $-header-background-color: map.get($table, "header-background-color");
+  $-border-color: map.get($table, "border-color");
+  $-cell-box-shadow-on-hover: map.get($table, "cell-box-shadow-on-hover");
+  $-column-background-if-ordered: map.get($table, "column-background-if-ordered");
+  $-header-cell-padding: map.get($table, "header-cell-padding");
+  $-body-cell-padding: map.get($table, "body-cell-padding");
+
+  .crud-table-wrapper {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    transition: height 0.5s ease;
+    border-radius: 0.5em;
+    box-shadow: -2px 3px 15px -6px map.get($table-wrapper, "box-shadow-color");
+  }
+
+  .crud-table {
+    margin: 0;
+    width: 100%;
+    font-size: 1em;
+    line-height: 1.35;
+    color: $-color;
+    background-color: $-background-color;
+
+    thead {
+      background-color: $-header-background-color;
+
+      th.min-width {
+        width: 1%;
+      }
+    }
+
+    tr {
+      transition: background-color 0.25s;
+
+      &.recently-updated {
+        transition: background-color 0.5s;
+        background-color: #4181aa;
+      }
+    }
+
+    th,
+    td {
+      &.crud-column-ordered {
+        background-color: $-column-background-if-ordered;
+      }
+    }
+
+    th {
+      padding: $-header-cell-padding;
+
+      &.crud-column-header {
+        vertical-align: top;
+        user-select: none;
+      }
+
+      &:hover {
+        .crud-order-by-sign  {
+          visibility: visible;
+        }
+      }
+
+      &.select {
+        vertical-align: top;
+        padding-left: 1.25em;
+        padding-right: 0.25em;
+        padding-top: 1em;
+      }
+    }
+
+    td {
+      padding: $-body-cell-padding;
+      text-align: start;
+      vertical-align: top;
+
+      &:hover {
+        //box-shadow: $-cell-box-shadow-on-hover;
+
+        .crud-table-cell {
+          .inline-edit-trigger {
+            visibility: visible;
+          }
+        }
+      }
+
+      &.select {
+        vertical-align: top;
+        padding-left: 1.25em;
+        padding-right: 0.25em;
+        padding-top: 0.9em;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid map.get($table-row, "border-bottom-color"); // 1px instead of 0.005em so that all lines are equally thick.
+
+        &.interactable {
+          cursor: pointer;
+        }
+      }
+      tr:last-of-type {
+        border-bottom: none;
+      }
+
+      td.no-data {
+        text-align: center;
+      }
+    }
+
+    &.crud-table-bordered {
+      border-collapse: collapse;
+
+      td,
+      th {
+        //border: 0.05em solid;
+        border-color: $-border-color;
+      }
+
+      th {
+        border-bottom: 0.15em solid;
+      }
+    }
+
+    &.crud-table-striped {
+      tr:nth-child(2n) {
+        background-color: $-background-color-of-striped-rows;
+      }
+    }
+
+    &.crud-table-hoverable {
+      tbody tr:hover {
+        background-color: $-background-color-on-hover;
+      }
+    }
+  }
+
+  .crud-order-by-trigger {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $-column-background-if-ordered;
+    }
+  }
+
+  .filter-trigger {
+    width: 1.3em;
+    height: 1.3em;
+    align-self: center;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .crud-order-by-sign {
+    font-size: 1em;
+    font-weight: 400;
+    margin-left: 0.25em;
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+
+  .action-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .action-icon {
+    display: inline-flex;
+    font-size: 1.2em;
+    margin-right: 0.3em;
+    cursor: pointer;
+  }
+
+  .crud-table-cell {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .crud-field {
+      // width: fit-content;
+      width: 100%;
+    }
+
+    .inline-edit-trigger {
+      display: inline-flex;
+      visibility: hidden;
+      margin: 0.25em 0 0.25em 0.25em;
+      cursor: pointer;
+    }
+  }
+
+}

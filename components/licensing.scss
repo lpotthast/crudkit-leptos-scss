@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@mixin produce($config) {
+
+  // TODO: This selector does not work...
+  .crud-instance.collapsible {
+    .crud-not-licensed-warning {
+      width: calc(100% + (2 * #{map.get($config, "component", "instance", "collapsible-body-content-margin")}));
+      margin: -(map.get($config, "component", "instance", "collapsible-body-content-margin"));
+    }
+  }
+
+  .crud-not-licensed-warning {
+    display: block;
+    background-color: darken(map.get($config, "color", "warn"), (map.get($config, "color-shift", "darker-3")));
+    color: white;
+    margin-bottom: map.get($config, "component", "instance", "collapsible-body-content-margin");
+  }
+
+  .crud-not-licensed-text {
+    text-align: center;
+  }
+
+}

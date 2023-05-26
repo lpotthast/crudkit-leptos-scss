@@ -1,0 +1,46 @@
+@use "../components/helper";
+@use "../components/card";
+@use "../components/datetime";
+@use "../components/instance";
+@use "../components/geometry";
+@use "../components/slider";
+@use "../components/pagination";
+@use "../components/progress_bar";
+@use "../components/quicksearch";
+@use "../components/nav";
+@use "../components/tooltip";
+@use "../components/validation";
+@use "../components/licensing";
+@use "../components/input";
+@use "../components/field-label";
+@use "../components/field";
+@use "../components/table";
+@use "../components/tiptap_editor";
+@use "../components/image_gallery";
+
+@mixin build-theme($config) {
+  // NOTE: We do not include any CSS resets, as we depend on Leptonic and expect that the leptonic themes already include this!
+  // As these styles will be an addition to the Leptonic styles already present on any given site, including another reset would do more harm than good.
+
+  // TODO: Move outside as they are not depending on the given $config.
+  @include helper.produce;
+
+  @include card.produce($config);
+  @include datetime.produce($config);
+  @include instance.produce($config);
+  @include geometry.produce($config);
+  @include slider.produce($config);
+  @include pagination.produce($config);
+  @include progress_bar.produce($config);
+  @include quicksearch.produce($config);
+  @include nav.produce($config);
+  @include tooltip.produce($config);
+  @include validation.produce($config);
+  @include licensing.produce($config);
+  @include input.produce($config);
+  @include field-label.produce($config);
+  @include field.produce($config);
+  @include table.produce($config);
+  @include tiptap_editor.produce($config);
+  @include image_gallery.produce($config);
+}
