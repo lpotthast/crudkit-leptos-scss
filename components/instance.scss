@@ -8,7 +8,6 @@
         display: block;
         transition: all 0.7s ease-in-out;
         //box-shadow: 1px 1px 5px -2px #131313;
-        font-size: 0.9rem;
 
         &.fullscreen {
             position: fixed;
@@ -38,7 +37,7 @@
                 background-color: #26b527;
             }
         }
-        
+
         .header {
             font-size: 1em;
             font-weight: 400;
