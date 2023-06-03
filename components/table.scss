@@ -36,8 +36,9 @@
     thead {
       background-color: $-header-background-color;
 
-      th.min-width {
-        width: 1%;
+      th.fit-content {
+        // width: 1%;
+        min-width: fit-content;
       }
     }
 
@@ -112,6 +113,10 @@
       }
       tr:last-of-type {
         border-bottom: none;
+      }
+
+      td.fit-content {
+        width: 0;
       }
 
       td.no-data {
