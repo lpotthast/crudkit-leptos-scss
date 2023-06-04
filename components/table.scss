@@ -36,9 +36,12 @@
     thead {
       background-color: $-header-background-color;
 
-      th.fit-content {
-        // width: 1%;
-        min-width: fit-content;
+      th {
+        text-align: start;
+
+        &.fit-content {
+          min-width: fit-content;
+        }
       }
     }
 
