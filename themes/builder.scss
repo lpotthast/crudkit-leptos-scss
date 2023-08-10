@@ -10,7 +10,6 @@
 @use "../components/nav";
 @use "../components/tooltip";
 @use "../components/validation";
-@use "../components/licensing";
 @use "../components/input";
 @use "../components/field-label";
 @use "../components/field";
@@ -36,7 +35,6 @@
   @include nav.produce($config);
   @include tooltip.produce($config);
   @include validation.produce($config);
-  @include licensing.produce($config);
   @include input.produce($config);
   @include field-label.produce($config);
   @include field.produce($config);
